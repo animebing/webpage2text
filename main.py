@@ -1,14 +1,14 @@
 import os
 
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse, FileResponse
+# from fastapi.staticfiles import StaticFiles
 
 from utils import do_extract
 
 app = FastAPI()
 static_dir = './static'
-app.mount("/static", StaticFiles(directory=static_dir), name="static")
+# app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 @app.get('/')
 async def get_html():
@@ -21,4 +21,8 @@ async def get_html():
 async def extract_text(url: str):
     text = do_extract(url)
     return text
-    
+
+
+@app.get('/static/{file_name}')
+async def get_static(file_name: str):
+    return FileResponse(os.path.join(static_dir, file_name))
