@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web App</title>
+</head>
+<body>
+	<h1>Web App</h1>
+	<form>
+		<label for="url">URL:</label>
+		<input type="text" id="url" name="url"><br><br>
+		<button type="button" onclick="extractText()">Extract Text</button>
+		<button type="button" onclick="copyText()">Copy Text</button>
+		<button type="button" onclick="saveText()">Save Text</button>
+	</form>
+	<br><br>
+	<textarea id="text" rows="10" cols="50"></textarea>
+	<script src="/static/app.js"></script>
+</body>
+</html>
