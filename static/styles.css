@@ -1,0 +1,32 @@
+main {
+    width: 40%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.url_div {
+    display: flex;
+    margin-bottom: 24px;
+}
+
+.button_div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+label {
+    display: block;
+}
+
+#url {
+    width: 70%;
+    margin-left: auto;
+}
+
+#text {
+    width: 100%;
+}
