@@ -13,9 +13,14 @@ function extractText() {
   }
 
 function copyText() {
-  const text = document.getElementById('text');
-  text.select();
-  document.execCommand('copy');
+  const text = document.getElementById('text').value;
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      alert("Copied text to keyboard");
+    })
+    .catch((err) => {
+      console.error('Error copying text: ', err);
+    });
 }
 
 function saveText() {
