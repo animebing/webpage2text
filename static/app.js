@@ -4,8 +4,7 @@ function extractText() {
       fetch('/api/extract?url=' + url)
         .then(response => response.text())
         .then(data => {
-          const text = JSON.parse(data)
-          console.log('bingbing: ' + text);
+          const text = JSON.parse(data);
           document.getElementById('text').value = text;
         })
         .catch(error => console.log(error));
