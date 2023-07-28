@@ -1,5 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+* body {
+    margin: 0;
+}
+
 main {
-    width: 40%;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -8,8 +16,14 @@ h1 {
 }
 
 .url_div {
-    display: flex;
-    margin-bottom: 24px;
+    margin-bottom: 5px;
+    height: 36px;
+}
+
+.url_div input {
+    display: block;
+    width: 100%;
+    height: 30px;
 }
 
 .button_div {
@@ -18,15 +32,13 @@ h1 {
     justify-content: space-between;
 }
 
-label {
-    display: block;
-}
-
-#url {
-    width: 70%;
-    margin-left: auto;
+.button_div button {
+    width: 30%;
+    height: 30px;
 }
 
 #text {
     width: 100%;
+    resize: none;
+    font-size: 15px;
 }
