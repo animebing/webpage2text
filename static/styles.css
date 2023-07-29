@@ -2,13 +2,13 @@
     box-sizing: border-box;
 }
 
-* body {
+body {
     margin: 0;
 }
 
 main {
-    width: 60%;
     margin: 0 auto;
+    width: 90%;
 }
 
 h1 {
@@ -16,8 +16,7 @@ h1 {
 }
 
 .url_div {
-    margin-bottom: 5px;
-    height: 36px;
+    margin-bottom: 10px;
 }
 
 .url_div input {
@@ -28,17 +27,75 @@ h1 {
 
 .button_div {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
 .button_div button {
-    width: 30%;
+    margin-bottom: 5px;
     height: 30px;
+    font-size: 15px;
+}
+
+@media (min-width: 640px) {
+    main {
+        width: 60%;
+    }
+
+    .button_div {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .button_div button {
+        flex: 0 0 30%;
+        margin-bottom: 5px;
+    }
+
 }
 
 #text {
     width: 100%;
     resize: none;
     font-size: 15px;
+}
+
+.loading {
+    display: inline-flex;
+    align-items: center;
+}
+
+.loading .inner {
+    background-color: black;
+}
+
+.loading span {
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 1px;
+}
+  
+.loading span:nth-of-type(2) {
+    animation-delay: 0.2s;
+}
+
+.loading span:nth-of-type(3) {
+    animation-delay: 0.4s;
+}
+  
+@keyframes blink {
+    0% {
+        opacity: 0.2;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
 }
