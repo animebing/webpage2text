@@ -33,20 +33,30 @@ function extractText() {
 }
 
 function copyText() {
-  const text = document.getElementById('text').value;
-  if (text === "") {
+  const textarea = document.getElementById('text');
+  if (textarea.value === "") {
     alert("There is no text");
     return;
   }
 
-  navigator.clipboard.writeText(text)
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(textarea.value)
     .then(() => {
       alert("Copied to clipboard");
     })
     .catch((err) => {
       console.error('Error copying text: ', err);
     });
-  
+  }
+  else {
+    // navigator.clipboard does not work in android
+    textarea.select();
+    document.execCommand("copy");
+    const selection = document.getSelection();
+    selection.empty();
+    alert("Copied to clipboard");
+
+  }
 }
 
 function saveText() {
@@ -57,7 +67,7 @@ function saveText() {
   }
 
   const filename = 'text.txt';
-  const blob = new Blob([text], {type: 'text/plain'});
+  const blob = new Blob([text], {type: 'text/plain;charset=utf-8'});
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.download = filename;
