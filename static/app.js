@@ -24,7 +24,10 @@ function extractText() {
         }
         document.getElementById('text').value = text;
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error);
+        alert("Extraction fails");
+      })
       .finally(() => {
         button_0.innerHTML = "Extract Text"
         button_1.disabled = false;
