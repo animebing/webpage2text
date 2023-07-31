@@ -1,10 +1,11 @@
 import re
-import urllib.request
+from urllib.request import Request, urlopen
 
 from inscriptis import get_text
 
 def do_extract(url: str):
-    html = urllib.request.urlopen(url).read().decode('utf-8')
+    request_site = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    html = urlopen(request_site).read().decode('utf-8')
     text = get_text(html)
     print(text)
     text = re.sub('\n+', '\n', text)
