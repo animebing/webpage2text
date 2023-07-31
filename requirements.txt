@@ -1,2 +1,2 @@
 fastapi==0.95.1
-trafilatura==1.6.1
+inscriptis==2.3.2
